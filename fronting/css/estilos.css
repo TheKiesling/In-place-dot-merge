@@ -19,7 +19,7 @@ body{
 }
 
 .titulo{
-    color: #32CDD6;
+    color: #211272;
     font-size: 30px;
     text-align: center;
     margin-bottom: 60px;
@@ -94,7 +94,7 @@ favoritos{
 }
 
 .cards2 .card{
-    background: #32CDD6;
+    background: #A8A2A4;
     display: flex;
     width: 40%;
     height: 150px;
@@ -114,6 +114,41 @@ favoritos{
 }
 
 .cards2 .card > .contenido-texto{
+    width: 60%;
+}
+
+recomendacion{
+    text-align: right;
+}
+
+.recomendacion{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Recomendaciones1 .contenedorR{
+    background: #32CDD6;
+    display: flex;
+    width: 150%;
+    height: 90px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Recomendaciones1 .contenedorR > .contenido-texto{
+    width: 60%;
+}
+
+.Recomendaciones2 .contenedorR{
+    background: #32CDD6;
+    display: flex;
+    width: 150%;
+    height: 90px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Recomendaciones2 .contenedorR > .contenido-texto{
     width: 60%;
 }
 
@@ -148,6 +183,34 @@ favoritos{
     }
 
     .cards2 .card:first-child{
+        margin-bottom: 30px;
+    }
+
+    .Recomendaciones1{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Recomendaciones1 .contenedorR{
+        width: 90%;
+    }
+
+    .Recomendaciones1 .contenedorR:first-child{
+        margin-bottom: 30px;
+    }
+
+    .Recomendaciones2{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Recomendaciones2 .contenedorR{
+        width: 90%;
+    }
+
+    .Recomendaciones2 .contenedorR:first-child{
         margin-bottom: 30px;
     }
 }
