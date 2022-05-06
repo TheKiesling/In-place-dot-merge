@@ -1,10 +1,10 @@
 CREATE (antigua:department {name:"Antigua Guatemala"})
-CREATE (casaEscobar:place {name: "Casa Escobar",released:})
+CREATE (casaEscobar:place {name: "Casa Escobar"})
 CREATE (irtra:place {name: "Irtra Petapa"})
 CREATE (earthlodge:place {name: "Earth Lodge"})
 CREATE (guatemala:department {name:"Ciudad de Guatemala"})
 CREATE (choco:place {name:"ChocoMuseo"})
-CREATE (zoologico:place {name:"Zoologico La Aurora"})
+CREATE (zoologico:place {name:"Zoológico La Aurora"})
 CREATE (sacatepequez:department {name:"Sacatepequez"})
 CREATE (laruta:place {name: "La Ruta"})
 CREATE (hobbitenango:place {name: "Hobbitenango"})
@@ -30,4 +30,3 @@ CREATE (laruta)-[:RELATION]->(familia)
 CREATE (hobbitenango)-[:RELATION]->(familia)
 CREATE (hobbitenango)-[:RELATION]->(pareja)
 
-Match (n) RETURN n @retorna los datos ingresados con anterioridad
