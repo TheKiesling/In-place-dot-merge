@@ -1,3 +1,5 @@
+/*Código que se encarga de generar el estilo de index.html*/
+
 *{
     margin: 0;
     padding: 0;
@@ -50,7 +52,7 @@ nav > a:hover{
 }
 
 .header img{
-    width: 35%;
+    width: 38%;
 }
 
 favoritos{
@@ -115,4 +117,37 @@ favoritos{
     width: 60%;
 }
 
+/*For other devices*/
+@media screen and (max-width: 1000px){
+    .header img{
+        width: 80%;
+    }
 
+    .cards1{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards1 .card{
+        width: 90%;
+    }
+
+    .cards1 .card:first-child{
+        margin-bottom: 30px;
+    }
+
+    .cards2{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards2 .card{
+        width: 90%;
+    }
+
+    .cards2 .card:first-child{
+        margin-bottom: 30px;
+    }
+}
