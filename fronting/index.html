@@ -1,3 +1,4 @@
+<!-- Main -->
 <!DOCTYPE html>
 <html land="es">
 <head>
@@ -5,12 +6,12 @@
     <meta name="viewport" content="width=device.width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>In Place Dot Merge</title>
-    <link rel="shortcut icon" href="others/icon/Icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="In-place-dot-merge/css/estilos.css">
+    <link rel="shortcut icon" href="images/IconP.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400&display=swap" rel="stylesheet">
-
+<!-- Encabezado -->
 </head>
 <body>
     <header>
@@ -21,54 +22,61 @@
             <a href="#">Pricing</a>
             <a href="#">Contact us</a>
         </nav>
-        <section class="textos-header">
-            <h1>Bienvenidos: In-dot-place-merge</h1>
-            <div class="contenedor logo">
-                <img src="images/Icon.png" alt="" class="logo">
-            </div>
+        <section class="header"> 
+            <p style="text-align: center; "><img src="images/Icon.png" alt="" class="logo"></p>
         </section>
-        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C265.52,123.86 212.07,7.42 500.86,81.43 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #08f;"></path></svg></div>
     </header>
     <main>
-        <section class="contenedor">
-            <h2 class="titulo">Los favoritos de todos (:</h2>
-            <div class="contenedor fav lugar 1">
-                <div class="contenedor fav lugar 1">
-                    <img src="images/cerveceria-catorce-1.jpg" alt="" class="imagen lugar1">
-                    <div class="contenido texto1">
-                        <h3>Cervecería 14</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus omnis provident sit delectus libero adipisci beatae ad, facere itaque ullam aut? Magnam earum, incidunt similique cumque libero nemo provident perspiciatis.</p>
+<!-- Seccion de favoritos -->
+    <h1><br><br><center>Los favoritos de todos (:</h1><br><br></center>
+        <div class="favoritos">
+            <div class="cards1">
+                <div class="card">
+                    <img src="images/cerveceria-catorce-1.jpg" alt="">
+                    <div class="contenido-texto">
+                        <h3><b>Cervecería 14</h3></b><br>
+                        <p><b>Categoría:</b> amigos<br><b>Tipo:</b> diversión<br><b>Dirección: </b>Km 51.5 RN10, Camino a San Miguel Dueñas, Cd Vieja</p>
                     </div>
                 </div>
-                <div class="contenedor fav lugar 2">
+                <div class="card">
                     <img src="images/NewTownofCayalaPaseoCayalaNeighborhood4.jpg" alt="">
-                    <div class="contenido texto2">
-                        <h3>Cayalá</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus omnis provident sit delectus libero adipisci beatae ad, facere itaque ullam aut? Magnam earum, incidunt similique cumque libero nemo provident perspiciatis.</p>
-                    </div>
-                </div>
-                <div class="contenedor fav lugar 3">
-                    <img src="images/La-Atitlan.jpg" alt="">
-                    <div class="contenido texto3">
-                        <h3>Atitlán</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus omnis provident sit delectus libero adipisci beatae ad, facere itaque ullam aut? Magnam earum, incidunt similique cumque libero nemo provident perspiciatis.</p>
-                    </div>
-                </div>
-                <div class="contenedor fav lugar 4">
-                    <img src="images/images.jpg" alt="">
-                    <div class="contenido texto4">
-                        <h3>Hobbitenango</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus omnis provident sit delectus libero adipisci beatae ad, facere itaque ullam aut? Magnam earum, incidunt similique cumque libero nemo provident perspiciatis.</p>
+                    <div class="contenido-texto">
+                        <h3><b>Ciudad Cayalá</h3></b><br>
+                        <p><b>Categoría:</b> amigos/familia<br><b>Tipo:</b> diversión<br><b>Dirección: </b>Zona 16</p>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <br><br>
+        <div class="fav">
+            <div class="cards2">
+                <div class="card">
+                    <img src="images/La-Atitlan.jpg" alt="">
+                    <div class="contenido-texto">
+                        <h3><b>Atitlán</h3></b><br>
+                        <p><b>Categoría:</b> familia<br><b>Tipo:</b> diversión<br><b>Dirección: </b>Km 51.5 RN10, Camino a San Miguel Dueñas, Cd Vieja</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/images.jpg" alt="">
+                    <div class="contenido-texto">
+                        <h3><b>Hobbitenango</h3></b><br>
+                        <p><b>Categoría:</b> amigos<br><b>Tipo:</b> diversión<br><b>Dirección: </b>Km 51.5 RN10, Camino a San Miguel Dueñas, Cd Vieja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Seccion de recomendacion -->
         </section>
         <section class="contenedor recomendacion">
             <h2 class="titulo2">Recomendación de lugares</h2>
             <div class="contenedor">
             </div>
+<!-- Lista despegable de caracteristicas -->
         </head>
-            <h1>Caracteristicas</h1>
+            <h1>Características</h1>
             <form>
                 <select>
                     <option>Naturaleza</option>
@@ -77,6 +85,7 @@
                     <option>Pareja</option>
                 <select>
                 </form>
+            </div>
     </main>
 </body>
 </html>
