@@ -83,7 +83,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
          }
     }
     
-    public LinkedList<String> getMoviesByActor(String places)
+    public LinkedList<String> getMoviesByActor(String place)
     {
    	 try ( Session session = driver.session() )
         {
@@ -94,7 +94,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
                 @Override
                 public LinkedList<String> execute( Transaction tx )
                 {
-                    Result result = tx.run( "MATCH (casaEscobar:place {name: \"" + places + "\"})-[:RELATION]->(inPlaceDotMerge) RETURN inPlaceDotMerge.title");
+                    Result result = tx.run( "MATCH (casaEscobar:place {name: \"" + place + "\"})-[:RELATION]->(inPlaceDotMerge) RETURN inPlaceDotMerge.title");
                     LinkedList<String> myplaces = new LinkedList<String>();
                     List<Record> registros = result.list();
                     for (int i = 0; i < registros.size(); i++) {
