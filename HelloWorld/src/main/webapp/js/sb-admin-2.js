@@ -54,7 +54,7 @@
   });
   
   //Evento del botón que me devuelve el listado de actores
-  $("#btn-search-actors").click(function(){
+  $("#btn-search-places").click(function(){
 		//alert("The button was clicked 1");
 				
 		$.ajax( {
@@ -97,30 +97,6 @@
 		
 		
 	});
-
-    //Evento del botón que me devuelve el listado de actores
-  $("#btn-search-actors").click(function(){
-		//alert("The button was clicked 1");
-				
-		$.ajax( {
-			
-			type: "GET",
-			url: '/HelloWorld/HelloServlet',
-			success: function(data) {
-				//alert("Result" + data.resultado);
-			    var htmlActorsList = '<ul>';
-				$.each(data.actores, function(i,item){
-					  htmlActorsList += '<li>' + item + '</li>';
-				});
-				htmlActorsList += '</ul>';
-				$('#div-listado-actores').html("");
-				$('#div-listado-actores').append(htmlActorsList);
-			}
-		} );
-		
-		
-	});
-
   //Evento del botón que me devuelve el listado de actores
   $("#btn-places").click(function(){
 		//alert("The button was clicked 1");
