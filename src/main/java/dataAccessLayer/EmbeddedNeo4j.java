@@ -11,9 +11,11 @@ import org.neo4j.driver.Result;
 import org.neo4j.driver.Session;
 import org.neo4j.driver.Transaction;
 import org.neo4j.driver.TransactionWork;
+import org.neo4j.driver.summary.ResultSummary;
 
 import static org.neo4j.driver.Values.parameters;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /**
@@ -23,11 +25,14 @@ import java.util.List;
 public class EmbeddedNeo4j implements AutoCloseable{
 
     private final Driver driver;
-    
+    ArrayList<String> departamentos = new ArrayList<String>();
 
     public EmbeddedNeo4j( String uri, String user, String password )
     {
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
+        departamentos.add("Ciudad de Guatemala");
+        departamentos.add("Sacatepequez");
+        departamentos.add("Antigua Guatemala");
     }
 
     @Override
@@ -109,5 +114,30 @@ public class EmbeddedNeo4j implements AutoCloseable{
             return actors;
         }
    }
+    public String insertPlace(String placeName, int Price, String Addres, String Caracteristics ,String Categorie, String Rating) {
+    	try ( Session session = driver.session() )
+        {
+   		 
+   		 String result = session.writeTransaction( new TransactionWork<String>()
+   		 
+            {
+                @Override
+                public String execute( Transaction tx )
+                {
+                    tx.run( "CREATE ("+ placeName +":place {name:'" + placeName + "'})");
+                    if(departamentos.)
+                    tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:department {name:'"+ Addres +"'}) CREATE (a)-[:LOCATED_IN]->(b)");
+                    
+                    return "OK";
+                }
+            }
+   		 
+   		 );
+            
+            return result;
+        } catch (Exception e) {
+        	return e.getMessage();
+        }
+    }
 
 }
