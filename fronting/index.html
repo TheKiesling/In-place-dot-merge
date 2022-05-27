@@ -15,14 +15,18 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#tab1">Recomendar</a>
-        </nav>
+        <ul class="nav">
+            <div class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recomendar.html">Recomendar</a></li>
+            </div>
+        </ul>
+        
         <section class="header"> 
             <p style="text-align: center; "><img src="images/Icon.png" alt="" class="logo"></p>
         </section>
     </header>
+
     <main>
         <!--Seccion dondes se da una recomendacion -->
         <br><br>
@@ -42,7 +46,7 @@
                         <select>
                     </form>
                 </div>
-        
+                <br><br>
                 <div class="contenedorR">
                     <h4><br>Rango de precio</h4>
                     <form>
@@ -56,7 +60,7 @@
                         <select>
                     </form>
                 </div>
-
+                <br><br>
                 <div class="contenedorR">
                     <h4>Características</h4>
                     <form>
@@ -108,13 +112,13 @@
                 <br><br><br><br>
                 <a href="#">Buscar</a>
                 <br>
-                <a href="#">Realizar una recomendación</a>
+                <a href="recomendar.html">Realizar una recomendación</a>
                 <br>
             </div>
         </section>
 
     <!-- Seccion de favoritos -->
-    <hr size=5 color=#FF4864><br>
+    <hr size=5 color=#FF4864>
     <h1 class="titulo2">Los favoritos de todos :)</h1>
     <section class="favoritos">
         <div class="cards1">
@@ -152,13 +156,5 @@
             </div>
         </div>
     </section> <br> <br> <br>
-
-    <!--Seccion donde el usuario realiza un ingreso en la base de datos (recomendar) -->
-        <div class="secciones">
-            <article id="tab1">
-            <h2 class="titulo3">¿Te gustaría realizar una recomendación?</h2>
-            <h4><center>Completa la información para recomendar un lugar, ¡Conozcamos nuevos lugres!</center></h4><br>
-        </div>
-        </article>
     </main>
 </body>
