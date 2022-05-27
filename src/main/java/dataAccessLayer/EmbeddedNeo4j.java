@@ -87,6 +87,16 @@ public class EmbeddedNeo4j implements AutoCloseable{
              return actors;
          }
     }
+
+    boolean itExist(ArrayList<String> as, String s){
+        boolean exist = false;
+
+        for (int i = 0; i < as.size() && !exist; i++)
+            if(as.get(i).equals(s))
+                exist = true;
+
+        return exist;
+    }
     
     public LinkedList<String> getMoviesByActor(String actor)
     {
@@ -103,7 +113,6 @@ public class EmbeddedNeo4j implements AutoCloseable{
                     LinkedList<String> myactors = new LinkedList<String>();
                     List<Record> registros = result.list();
                     for (int i = 0; i < registros.size(); i++) {
-                   	 //myactors.add(registros.get(i).toString());
                    	 myactors.add(registros.get(i).get("actorMovies.title").asString());
                     }
                     
@@ -125,7 +134,10 @@ public class EmbeddedNeo4j implements AutoCloseable{
                 public String execute( Transaction tx )
                 {
                     tx.run( "CREATE ("+ placeName +":place {name:'" + placeName + "'})");
-                    if(departamentos.)
+                    if(!itExist(departamentos, Addres)){
+                        tx.run( "CREATE ("+ Addres + ":department {name: '" + Addres + "'})");
+                        departamentos.add(Addres);
+                    }
                     tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:department {name:'"+ Addres +"'}) CREATE (a)-[:LOCATED_IN]->(b)");
                     
                     return "OK";
