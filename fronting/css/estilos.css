@@ -1,4 +1,4 @@
-/*Código que se encarga de generar el estilo de index.html*/
+/*Código que se encarga de generar los estilos para los .html*/
 
 *{
     margin: 0;
@@ -23,6 +23,7 @@ body{
     font-size: 35px;
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .titulo2{
@@ -43,26 +44,21 @@ header{
 }
 
 .menu a{
+    text-decoration: none;
+    display:table-cell;
     border: 1px;
-    width: 200px;
+    width: 100px;
     height: 50px;
+    text-align: center;
     padding: auto;
     padding-top: 15px;
-    margin: auto;
-    text-align: right;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-/*.nav > a{
-    color: #3D23C0;
-    font-weight: 300;
-    text-decoration: none;
-    margin-right: 10px;
-}*/
-
 .menu > a:hover{
-    /*text-decoration: underline;*/
-    color: #3D23C0;
-    background-color: #EDF5F7;
+    color: #EDF5F7;
+    background-color: #3D23C0;
 }
 
 .header img{
@@ -79,7 +75,7 @@ section.favoritos > *{
 }
 
 .cards1 .card{
-    background: #A8A2A4;
+    background: #DAE1ED;
     display: flex;
     width: 40%;
     height: 150px;
@@ -108,7 +104,7 @@ section.favoritos > *{
 }
 
 .cards2 .card{
-    background: #A8A2A4;
+    background: #DAE1ED;
     display: flex;
     width: 40%;
     height: 150px;
@@ -142,7 +138,7 @@ section.recomendacion > *{
 
 .Recomendaciones1 .contenedorR{
     display: block;
-    width: 200px;
+    width: 150px;
     height: 50px;
     text-align: center;
     padding: auto;
@@ -157,7 +153,7 @@ section.recomendacion > *{
 
 .Recomendaciones2 .contenedorR{
     display: block;
-    width: 200px;
+    width: 150px;
     height: 50px;
     text-align: center;
     padding: auto;
@@ -172,7 +168,7 @@ section.recomendacion > *{
 
 .botonesR a{
     text-decoration: none;
-    display: block;
+    display:flow-root;
     border: 1px;
     width: 200px;
     height: 50px;
