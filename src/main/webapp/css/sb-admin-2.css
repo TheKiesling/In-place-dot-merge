@@ -1,10 +1,4 @@
-/*!
- * Start Bootstrap - SB Admin 2 v4.1.3 (https://startbootstrap.com/theme/sb-admin-2)
- * Copyright 2013-2021 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin-2/blob/master/LICENSE)
- */
-
-/*Código que se encarga de generar el estilo de index.html*/
+/*Código que se encarga de generar los estilos para los .html*/
 
 *{
     margin: 0;
@@ -24,45 +18,55 @@ body{
     overflow: hidden;
 }
 
-.titulo{
+.titulo1{
     color: #211272;
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.titulo2{
+    color: #3D23C0;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 header{
     width: 100%;
-    height: 500px;
+    height: 25%;
     background: #EDF5F7;
     background-size: cover;
     background-attachment: fixed;
     position: relative;
 }
 
-nav{
-    text-align: right;
-    padding: 30px 50px 0 0;
-    
-}
-
-nav > a{
-    color: #3D23C0;
-    font-weight: 300;
+.menu a{
     text-decoration: none;
-    margin-right: 10px;
+    display:table-cell;
+    border: 1px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    padding: auto;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-nav > a:hover{
-    text-decoration: underline;
+.menu > a:hover{
+    color: #EDF5F7;
+    background-color: #3D23C0;
 }
 
 .header img{
     width: 38%;
 }
 
-favoritos{
-    text-align: right;
+section.favoritos > *{
+    text-align: left;
 }
 
 .cards1{
@@ -71,7 +75,7 @@ favoritos{
 }
 
 .cards1 .card{
-    background: #A8A2A4;
+    background: #DAE1ED;
     display: flex;
     width: 40%;
     height: 150px;
@@ -100,7 +104,7 @@ favoritos{
 }
 
 .cards2 .card{
-    background: #A8A2A4;
+    background: #DAE1ED;
     display: flex;
     width: 40%;
     height: 150px;
@@ -123,7 +127,7 @@ favoritos{
     width: 60%;
 }
 
-recomendacion{
+section.recomendacion > *{
     text-align: right;
 }
 
@@ -133,11 +137,13 @@ recomendacion{
 }
 
 .Recomendaciones1 .contenedorR{
-    background: #32CDD6;
-    display: flex;
-    width: 150%;
-    height: 90px;
-    align-items: center;
+    display: block;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding: auto;
+    padding-top: 15px;
+    margin: auto;
     justify-content: space-evenly;
 }
 
@@ -146,16 +152,57 @@ recomendacion{
 }
 
 .Recomendaciones2 .contenedorR{
-    background: #32CDD6;
-    display: flex;
-    width: 150%;
-    height: 90px;
-    align-items: center;
+    display: block;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding: auto;
+    padding-top: 15px;
+    margin: auto;
     justify-content: space-evenly;
 }
 
 .Recomendaciones2 .contenedorR > .contenido-texto{
     width: 60%;
+}
+
+.botonesR a{
+	align:center;
+    text-decoration: none;
+    display:flow-root;
+    border: 1px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    padding: auto;
+    padding-top: 15px;
+    margin: auto;
+    color: #3D23C0;
+    background-color: #DAE1ED;
+}
+
+.botonesR input{
+	align:center;
+    text-decoration: none;
+    display:flow-root;
+    border: 1px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    padding: auto;
+    margin: auto;
+    color: #3D23C0;
+    background-color: #DAE1ED;
+}
+
+.botonesR > a:hover{
+    color: #EDF5F7;
+    background-color: #3D23C0;
+}
+
+.botonesR > input:hover{
+    color: #EDF5F7;
+    background-color: #3D23C0;
 }
 
 /*For other devices*/
@@ -219,5 +266,10 @@ recomendacion{
     .Recomendaciones2 .contenedorR:first-child{
         margin-bottom: 30px;
     }
-}
 
+    .botonesR{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } 
+}

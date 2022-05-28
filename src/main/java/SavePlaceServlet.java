@@ -52,7 +52,6 @@ public class SavePlaceServlet extends HttpServlet {
 	 	
 	 	 try ( EmbeddedNeo4j neo4jDriver = new EmbeddedNeo4j( "bolt://localhost:7687", "neo4j", "UVG-compu2022" ) )
 	        {
-	 		 	ArrayList<String> lista = neo4jDriver.getAdress();
 			 	String myResultTx = neo4jDriver.insertPlace(placeName, Price, Addres, Caracteristics, Categorie, Rating);
 	        	
 			 	myResponse.put("resultado", myResultTx);
