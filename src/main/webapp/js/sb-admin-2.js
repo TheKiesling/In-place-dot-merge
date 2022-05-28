@@ -135,4 +135,19 @@
 		
 		
 	});
+
+	//Evento del botón que creara un nuevo lugar
+	$("#btn-insert-place").click(function(){
+				
+		$.ajax( {
+			
+			type: "GET",
+			url: '/src/SavePlaceServlet?name=' + $('#placeName').val() + '&price_range=' + $('#Price').val() + '&Addres=' + $('#Addres').val() + '&Caracteristic=' + $('#Caracteristics').val() + '&Categorie=' + $('#Categorie').val() + '&Rating=' + $('#Rating').val(),
+			success: function(data) {
+			    alert("Resultado: " + data.resultado);
+			}
+		} );
+		
+		
+	});
 })(jQuery); // End of use strict
