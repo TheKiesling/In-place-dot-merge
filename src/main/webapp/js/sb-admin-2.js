@@ -142,7 +142,7 @@
 		$.ajax( {
 			
 			type: "GET",
-			url: '/src/SavePlaceServlet?name=' + $('#placeName').val() + '&price_range=' + $('#Price').val() + '&Addres=' + $('#Addres').val() + '&Caracteristic=' + $('#Caracteristics').val() + '&Categorie=' + $('#Categorie').val() + '&Rating=' + $('#Rating').val(),
+			url: '/In/SavePlaceServlet?name=' + $('#place').val() + '&price_range=' + $('#price').val() + '&Addres=' + $('#addres').val() + '&Caracteristic=' + $('#caracteristics').val() + '&Categorie=' + $('#categorie').val() + '&Rating=' + $('#rating').val(),
 			success: function(data) {
 			    alert("Resultado: " + data.resultado);
 			}
