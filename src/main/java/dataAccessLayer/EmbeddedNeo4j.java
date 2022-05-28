@@ -98,6 +98,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
         return exist;
     }
     
+
     public LinkedList<String> getMoviesByActor(String actor)
     {
    	 try ( Session session = driver.session() )
@@ -113,6 +114,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
                     LinkedList<String> myactors = new LinkedList<String>();
                     List<Record> registros = result.list();
                     for (int i = 0; i < registros.size(); i++) {
+                   	 //myactors.add(registros.get(i).toString());
                    	 myactors.add(registros.get(i).get("actorMovies.title").asString());
                     }
                     
@@ -123,7 +125,32 @@ public class EmbeddedNeo4j implements AutoCloseable{
             return actors;
         }
    }
-    public String insertPlace(String placeName, int Price, String Addres, String Caracteristics ,String Categorie, String Rating) {
+    
+    public ArrayList<String> getAdress()
+    {
+   	 try ( Session session = driver.session() )
+        {
+   		 
+   		 
+   		 ArrayList<String> places = session.readTransaction( new TransactionWork<ArrayList<String>>()
+            {
+                @Override
+                public ArrayList<String> execute( Transaction tx )
+                {
+                	Result result = tx.run( "MATCH (n:department) RETURN n");
+                    List<Record> registros = result.list();
+                    for (int i = 0; i < registros.size(); i++) {
+                   	 departamentos.add(registros.get(i).get("n").toString());
+                    }
+                    
+                    return departamentos;
+                }
+            } );
+            
+            return places;
+        }
+   }
+    public String insertPlace(String placeName, String Price, String Addres, String Caracteristics ,String Categorie, String Rating) {
     	try ( Session session = driver.session() )
         {
    		 
@@ -139,7 +166,10 @@ public class EmbeddedNeo4j implements AutoCloseable{
                         departamentos.add(Addres);
                     }
                     tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:department {name:'"+ Addres +"'}) CREATE (a)-[:LOCATED_IN]->(b)");
-                    
+                    tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:cost {name:'"+ Price +"'}) CREATE (a)-[:COST]->(b)");
+                    tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:relation {name:'"+ Categorie +"'}) CREATE (a)-[:RELATION]->(b)");
+                    tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:caracteristic {name:'"+ Caracteristics +"'}) CREATE (a)-[:IS]->(b)");
+                    tx.run( "MATCH (a:place {name:'"+ placeName +"'}),(b:score {name:'"+ Rating +"'}) CREATE (a)-[:POINTS]->(b)");
                     return "OK";
                 }
             }

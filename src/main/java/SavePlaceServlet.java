@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -51,7 +52,8 @@ public class SavePlaceServlet extends HttpServlet {
 	 	
 	 	 try ( EmbeddedNeo4j neo4jDriver = new EmbeddedNeo4j( "bolt://localhost:7687", "neo4j", "UVG-compu2022" ) )
 	        {
-			 	String myResultTx = neo4jDriver.insertPlace(placeName, Integer.parseInt(Price), Addres, Caracteristics, Categorie, Rating);
+	 		 	ArrayList<String> lista = neo4jDriver.getAdress();
+			 	String myResultTx = neo4jDriver.insertPlace(placeName, Price, Addres, Caracteristics, Categorie, Rating);
 	        	
 			 	myResponse.put("resultado", myResultTx);
 	        } catch (Exception e) {

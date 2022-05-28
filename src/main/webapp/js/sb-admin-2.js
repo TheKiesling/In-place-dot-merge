@@ -119,4 +119,20 @@
 		
 		
 	});
+
+
+	//Evento del botón que creara una nueva pelicula
+	$("#btn-insert-movie").click(function(){
+				
+		$.ajax( {
+			
+			type: "GET",
+			url: '/HelloWorld/SaveMovieServlet?title=' + $('#txt-movie-title').val() + '&release_year=' + $('#txt-movie-release').val() + '&tagline=' + $('#txt-movie-tagline').val() ,
+			success: function(data) {
+			    alert("Resultado: " + data.resultado);
+			}
+		} );
+		
+		
+	});
 })(jQuery); // End of use strict
