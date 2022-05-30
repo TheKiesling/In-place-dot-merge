@@ -97,6 +97,39 @@
 		
 		
 	});
+//Evento del botón que me devuelve el listado de películas de un determinado actor
+	$(document).ready(function(){
+					
+		$.ajax( {
+			
+			type: "GET",
+			url: '/HelloWorld/FavPlaces',
+			success: function(data) {
+				//alert("Result" + data.resultado);
+				var htmlPlacesList = '<h3><b>';
+				var cont = 0;
+				$.each(data.lugares, function(i,item){
+						if (cont == 0)
+							htmlPlacesList += item + '</h3></b><br>';
+						else if (cont == 1)
+							htmlPlacesList +='<p><b>Categoría:</b>' + item + '<br>';
+						else if (cont == 2)
+							htmlPlacesList +='<b>Tipo:</b>' + item + '<br>';
+						else if (cont == 3)
+							htmlPlacesList +='<b>Ubicacion:</b>' + item + '<br>';
+						else if (cont == 4)
+							htmlPlacesList +='<b>Precio:</b>' + item + '<br></p><br><br>';
+						else if (cont == 5)
+								cont = 0;
+						cont++;
+				});
+				$('#favs').html("");
+				$('#favs').append(htmlPlacesList);
+			}
+		} );
+	
+	
+	});
   //Evento del botón que me devuelve el listado de actores
   $("#btn-places").click(function(){
 		//alert("The button was clicked 1");

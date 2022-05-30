@@ -125,6 +125,37 @@ public class EmbeddedNeo4j implements AutoCloseable{
             return actors;
         }
    }
+
+   public LinkedList<String> getFavPlaces()
+    {
+   	 try ( Session session = driver.session() )
+        {
+   		 
+   		 
+   		 LinkedList<String> places = session.readTransaction( new TransactionWork<LinkedList<String>>()
+            {
+                @Override
+                public LinkedList<String> execute( Transaction tx )
+                {
+                    Result result = tx.run( "MATCH (p:place)-[:POINTS]->'5'RETURN place");
+                    LinkedList<String> myplaces = new LinkedList<String>();
+                    List<Record> registros = result.list();
+                    for (int i = 0; i < registros.size(); i++) {
+                   	 //myactors.add(registros.get(i).toString());
+                   	    myplaces.add(registros.get(i).get("place.name").asString());
+                        myplaces.add(registros.get(i).get("place.department").asString());
+                        myplaces.add(registros.get(i).get("place.cost").asString());
+                        myplaces.add(registros.get(i).get("place.relation").asString());
+                        myplaces.add(registros.get(i).get("place.caracteristic").asString());
+                    }
+                    
+                    return myplaces;
+                }
+            } );
+            
+            return places;
+        }
+   }
     
     public ArrayList<String> getAdress()
     {
@@ -160,7 +191,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
                 @Override
                 public String execute( Transaction tx )
                 {
-                    tx.run( "CREATE ("+ placeName +":place {name:'" + placeName + "'})");
+                    tx.run( "CREATE ("+ placeName +":place {name:'" + placeName + "',department:'" + Addres + "',cost:'" + Price + "',relation:'" + Categorie +"',caracteristic:'" + Caracteristics + "',score:'"+ Rating +"'})");
                     if(!itExist(departamentos, Addres)){
                         tx.run( "CREATE ("+ Addres + ":department {name: '" + Addres + "'})");
                         departamentos.add(Addres);
