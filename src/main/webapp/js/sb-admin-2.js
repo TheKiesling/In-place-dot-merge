@@ -103,25 +103,26 @@
 		$.ajax( {
 			
 			type: "GET",
-			url: '/HelloWorld/FavPlaces',
+			url: '/In/FavPlaces',
 			success: function(data) {
 				//alert("Result" + data.resultado);
-				var htmlPlacesList = '<h3><b>';
+				var htmlPlacesList ="";
 				var cont = 0;
 				$.each(data.lugares, function(i,item){
 						if (cont == 0)
-							htmlPlacesList += item + '</h3></b><br>';
-						else if (cont == 1)
-							htmlPlacesList +='<p><b>Categoría:</b>' + item + '<br>';
-						else if (cont == 2)
-							htmlPlacesList +='<b>Tipo:</b>' + item + '<br>';
-						else if (cont == 3)
-							htmlPlacesList +='<b>Ubicacion:</b>' + item + '<br>';
-						else if (cont == 4)
-							htmlPlacesList +='<b>Precio:</b>' + item + '<br></p><br><br>';
-						else if (cont == 5)
-								cont = 0;
-						cont++;
+							htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
+						if (cont == 1)
+							htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
+						if (cont == 2)
+							htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
+						if (cont == 3)
+							htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
+						if (cont == 4){
+							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
+							cont = 0;
+						}
+						else cont++;
+						
 				});
 				$('#favs').html("");
 				$('#favs').append(htmlPlacesList);
@@ -184,4 +185,3 @@
 		
 	});
 })(jQuery); // End of use strict
-

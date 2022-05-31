@@ -19,7 +19,7 @@ import org.json.simple.JSONArray;
 /**
  * Servlet implementation class MoviesByActor
  */
-@WebServlet("/MoviesByActor")
+@WebServlet("/FavPlaces")
 public class FavPlaces extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

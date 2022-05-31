@@ -137,16 +137,16 @@ public class EmbeddedNeo4j implements AutoCloseable{
                 @Override
                 public LinkedList<String> execute( Transaction tx )
                 {
-                    Result result = tx.run( "MATCH (p:place)-[:POINTS]->'5'RETURN place");
+                    Result result = tx.run( "MATCH (p:place) WHERE p.score='5' RETURN p.name,p.department,p.cost,p.relation,p.caracteristic");
                     LinkedList<String> myplaces = new LinkedList<String>();
                     List<Record> registros = result.list();
                     for (int i = 0; i < registros.size(); i++) {
                    	 //myactors.add(registros.get(i).toString());
-                   	    myplaces.add(registros.get(i).get("place.name").asString());
-                        myplaces.add(registros.get(i).get("place.department").asString());
-                        myplaces.add(registros.get(i).get("place.cost").asString());
-                        myplaces.add(registros.get(i).get("place.relation").asString());
-                        myplaces.add(registros.get(i).get("place.caracteristic").asString());
+                   	    myplaces.add(registros.get(i).get("p.name").asString());
+                        myplaces.add(registros.get(i).get("p.department").asString());
+                        myplaces.add(registros.get(i).get("p.cost").asString());
+                        myplaces.add(registros.get(i).get("p.relation").asString());
+                        myplaces.add(registros.get(i).get("p.caracteristic").asString());
                     }
                     
                     return myplaces;
