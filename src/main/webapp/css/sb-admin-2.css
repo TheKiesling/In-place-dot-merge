@@ -205,6 +205,19 @@ section.recomendacion > *{
     background-color: #3D23C0;
 }
 
+.card{
+    display: flex;
+    justify-content: space-evenly;
+    background: #EDF5F7;
+    display: flex;
+    width: 40%;
+    height: 150px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
 /*For other devices*/
 @media screen and (max-width: 1000px){
     .header img{
