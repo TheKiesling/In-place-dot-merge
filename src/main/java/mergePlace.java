@@ -42,6 +42,7 @@ public class mergePlace extends HttpServlet {
 	 	JSONObject myResponse = new JSONObject();
 
 	 	JSONArray data = new JSONArray();
+        JSONArray dataa = new JSONArray();
 		
 	 	
 	 	String placeName = request.getParameter("name");
@@ -58,6 +59,13 @@ public class mergePlace extends HttpServlet {
 			 		 //out.println( "<p>" + myactors.get(i) + "</p>" );
 			 		data.add(myplaces.get(i));
 			 	}
+
+                LinkedList<String> myplacesa = greeter.getPlaces(Price, Addres, Caracteristics, Categorie);
+			 	
+			 	for (int i = 0; i < myplacesa.size(); i++) {
+			 		 //out.println( "<p>" + myactors.get(i) + "</p>" );
+			 		dataa.add(myplacesa.get(i));
+			 	}
 	        	
 	        } catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -66,6 +74,7 @@ public class mergePlace extends HttpServlet {
 	 	
 	 	myResponse.put("conteo", data.size()); //Guardo la cantidad de actores
 	 	myResponse.put("lugares", data);
+        myResponse.put("addres", dataa)
 	 	out.println(myResponse);
 	 	out.flush();  
 	 	
