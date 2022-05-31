@@ -97,6 +97,42 @@
 		
 		
 	});
+
+	//Evento del botón que me devuelve el listado de películas de un determinado actor
+	$("#btn-search-places").click(function(){
+				
+		$.ajax( {
+			
+			type: "GET",
+			url: '/In/mergePlace?price_range=' + $('#price').val() + '&Addres=' + $('#addres').val() + '&Caracteristic=' + $('#caracteristics').val() + '&Categorie=' + $('#categorie').val(),
+			success: function(data) {
+				//alert("Result" + data.resultado);
+				var htmlPlacesList ="";
+				var cont = 0;
+				$.each(data.lugares, function(i,item){
+						if (cont == 0)
+							htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
+						if (cont == 1)
+							htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
+						if (cont == 2)
+							htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
+						if (cont == 3)
+							htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
+						if (cont == 4){
+							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
+							cont = 0;
+						}
+						else cont++;
+						
+				});
+				$('#reco').html("");
+				$('#reco').append(htmlPlacesList);
+			}
+		} );
+		
+		
+	});
+
 //Evento del botón que me devuelve el listado de películas de un determinado actor
 	$(document).ready(function(){
 					

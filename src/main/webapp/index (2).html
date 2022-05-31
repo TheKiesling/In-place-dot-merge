@@ -36,7 +36,7 @@
                 <div class="contenedorR">
                     <h4><br>Ubicación</h4>
                     <form>
-                        <select>
+                        <select id="addres">
                             <option disabled="">Seleccione una opción</option>
                             <option>Ciudad de Guatemala</option>
                             <option>Antigua Guatemala</option>
@@ -60,7 +60,7 @@
                 <div class="contenedorR">
                     <h4><br>Precio mínimo por persona en (Q)</h4>
                     <form>
-                        <select>
+                        <select id="price">
                             <option disabled="">Seleccione una opción</option>
                             <option>50</option>
                             <option>100</option>
@@ -73,7 +73,7 @@
                 <div class="contenedorR">
                     <h4>Características</h4>
                     <form>
-                        <select>
+                        <select id="caracteristics">
                             <option disabled="">Seleccione una opción</option>
                             <option>Naturaleza</option>
                             <option>Extremo</option>
@@ -85,8 +85,7 @@
                 </div>
                 <br><br>
                 <div class="botonesR">
-                    <a href="#">Buscar</a>
-                    <br>
+                    <input type="button" id="btn-search-places" value="Buscar"><br>
                 </div>
             </div>
 
@@ -96,7 +95,7 @@
                 <div class="contenedorR">
                     <h4><br>Categoría</h4>
                     <form>
-                        <select>
+                        <select id="categorie">
                             <option disabled="">Seleccione una opción</option>
                             <option>Familia</option>
                             <option>Amigos</option>
@@ -109,7 +108,7 @@
                 <div class="contenedorR">
                     <h4><br>Calificación</h4>
                     <form>
-                        <select>
+                        <select id="rating">
                             <option disabled="">Seleccione una opción</option>
                             <option>1</option>
                             <option>2</option>
@@ -126,6 +125,10 @@
                 </div>
             </div>
         </section>
+
+        <div class="card" id="reco">
+            
+        </div>
 
     <!-- Seccion de favoritos -->
     <hr size=5 color=#FF4864>
