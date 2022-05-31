@@ -129,7 +129,7 @@ public class EmbeddedNeo4j implements AutoCloseable{
         }
    }
 
-   public LinkedList<String> getAddresPlaces(String Price, String Addres, String Caracteristics ,String Categorie)
+   public LinkedList<String> getAPlaces(String Price, String Addres, String Caracteristics ,String Categorie)
     {
    	 try ( Session session = driver.session() )
         {
@@ -140,7 +140,38 @@ public class EmbeddedNeo4j implements AutoCloseable{
                 @Override
                 public LinkedList<String> execute( Transaction tx )
                 {
-                    Result result = tx.run( "MATCH (p:place) WHERE p.department='" + Addres + "' RETURN p.name,p.department,p.cost,p.relation,p.caracteristic");
+                    Result result = tx.run( "MATCH (p:place) WHERE (p.department='" + Addres + "' AND p.cost='" + Price + "' AND p.relation='" + Categorie +"' AND NOT p.caracteristic='" + Caracteristics + "') OR (p.department='" + Addres + "' AND p.cost='" + Price + "' AND p.caracteristic='" + Caracteristics + "' AND NOT p.relation='" + Categorie +"' ) OR (p.department='" + Addres + "' AND p.caracteristic='" + Caracteristics + "' AND p.relation='" + Categorie +"' AND NOT p.cost='" + Price + "') OR (p.department='" + Addres + "' AND p.cost='" + Price + "' AND p.relation='" + Categorie +"' AND NOT p.caracteristic='" + Caracteristics + "') RETURN p.name,p.department,p.cost,p.relation,p.caracteristic order by p.score desc");
+                    LinkedList<String> myplaces = new LinkedList<String>();
+                    List<Record> registros = result.list();
+                    for (int i = 0; i < registros.size(); i++) {
+                   	 //myactors.add(registros.get(i).toString());
+                   	    myplaces.add(registros.get(i).get("p.name").asString());
+                        myplaces.add(registros.get(i).get("p.department").asString());
+                        myplaces.add(registros.get(i).get("p.cost").asString());
+                        myplaces.add(registros.get(i).get("p.relation").asString());
+                        myplaces.add(registros.get(i).get("p.caracteristic").asString());
+                    }
+                    
+                    return myplaces;
+                }
+            } );
+            
+            return places;
+        }
+   }
+
+   public LinkedList<String> getCPlaces(String Price, String Addres, String Caracteristics ,String Categorie)
+    {
+   	 try ( Session session = driver.session() )
+        {
+   		 
+   		 
+   		 LinkedList<String> places = session.readTransaction( new TransactionWork<LinkedList<String>>()
+            {
+                @Override
+                public LinkedList<String> execute( Transaction tx )
+                {
+                    Result result = tx.run( "MATCH (p:place) WHERE (p.department='" + Addres + "' AND NOT p.cost='" + Price + "') OR (p.department='" + Addres + "' AND NOT p.relation='" + Categorie +"') OR (p.department='" + Addres + "' AND NOT p.caracteristic='" + Caracteristics + "') RETURN p.name,p.department,p.cost,p.relation,p.caracteristic order by p.score desc");
                     LinkedList<String> myplaces = new LinkedList<String>();
                     List<Record> registros = result.list();
                     for (int i = 0; i < registros.size(); i++) {

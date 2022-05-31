@@ -109,24 +109,31 @@
 				//alert("Result" + data.resultado);
 				var htmlPlacesList ="";
 				var cont = 0;
-				$.each(data.lugares, function(i,item){
-						if (cont == 0)
-							htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
-						if (cont == 1)
-							htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
-						if (cont == 2)
-							htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
-						if (cont == 3)
-							htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
-						if (cont == 4){
-							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
-							cont = 0;
-						}
-						else cont++;
-						
-				});
-				$('#reco').html("");
-				$('#reco').append(htmlPlacesList);
+				if (data.conteo != 0){
+					$.each(data.lugares, function(i,item){
+							if (cont == 0)
+								htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
+							if (cont == 1)
+								htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
+							if (cont == 2)
+								htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
+							if (cont == 3)
+								htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
+							if (cont == 4){
+								htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
+								cont = 0;
+							}
+							else cont++;
+							
+					});
+					$('#reco').html("");
+					$('#reco').append(htmlPlacesList);
+				}
+				else{
+					htmlPlacesList += "Vaya parece que no hay nada que mostrar aquí"
+					$('#reco').html("");
+					$('#reco').append(htmlPlacesList);
+				}
 			}
 		} );
 
@@ -138,27 +145,70 @@
 				//alert("Result" + data.resultado);
 				var htmlPlacesList ="";
 				var cont = 0;
-				$.each(dataa.addres, function(i,item){
-						if (cont == 0)
-							htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
-						if (cont == 1)
-							htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
-						if (cont == 2)
-							htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
-						if (cont == 3)
-							htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
-						if (cont == 4){
-							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
-							cont = 0;
-						}
-						else cont++;
-						
-				});
-				$('#recoa').html("");
-				$('#recoa').append(htmlPlacesList);
+				if(dataa.conteoa != 0){
+					$.each(dataa.a, function(i,item){
+							if (cont == 0)
+								htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
+							if (cont == 1)
+								htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
+							if (cont == 2)
+								htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
+							if (cont == 3)
+								htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
+							if (cont == 4){
+								htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
+								cont = 0;
+							}
+							else cont++;
+							
+					});
+					$('#recoa').html("");
+					$('#recoa').append(htmlPlacesList);
+				}
+				else{
+					htmlPlacesList += "Vaya parece que no hay nada que mostrar aquí"
+					$('#recoa').html("");
+					$('#recoa').append(htmlPlacesList);
+				}
 			}
 		} );
 		
+
+		$.ajax( {
+			
+			type: "GET",
+			url: '/In/mergePlace?price_range=' + $('#price').val() + '&Addres=' + $('#addres').val() + '&Caracteristic=' + $('#caracteristics').val() + '&Categorie=' + $('#categorie').val(),
+			success: function(datac) {
+				//alert("Result" + data.resultado);
+				var htmlPlacesList ="";
+				var cont = 0;
+				if(datac.conteoa != 0){
+					$.each(datac.c, function(i,item){
+							if (cont == 0)
+								htmlPlacesList +='<h3><b>' + item + '</h3></b><br>';
+							if (cont == 1)
+								htmlPlacesList +='<p><b>Ubicacion:</b>' + item + '<br>';
+							if (cont == 2)
+								htmlPlacesList +='<b>Precio:</b>' + item + '<br>';
+							if (cont == 3)
+								htmlPlacesList +='<b>Categoria:</b>' + item + '<br>';
+							if (cont == 4){
+								htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
+								cont = 0;
+							}
+							else cont++;
+							
+					});
+					$('#recoc').html("");
+					$('#recoc').append(htmlPlacesList);
+				}
+				else{
+					htmlPlacesList += "Vaya parece que no hay nada que mostrar aquí"
+					$('#recoc').html("");
+					$('#recoc').append(htmlPlacesList);
+				}
+			}
+		} );
 		
 	});
 

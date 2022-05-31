@@ -43,6 +43,7 @@ public class mergePlace extends HttpServlet {
 
 	 	JSONArray data = new JSONArray();
         JSONArray dataa = new JSONArray();
+        JSONArray datac = new JSONArray();
 		
 	 	
 	 	String placeName = request.getParameter("name");
@@ -60,11 +61,18 @@ public class mergePlace extends HttpServlet {
 			 		data.add(myplaces.get(i));
 			 	}
 
-                LinkedList<String> myplacesa = greeter.getPlaces(Price, Addres, Caracteristics, Categorie);
+                LinkedList<String> myplacesa = greeter.getAPlaces(Price, Addres, Caracteristics, Categorie);
 			 	
 			 	for (int i = 0; i < myplacesa.size(); i++) {
 			 		 //out.println( "<p>" + myactors.get(i) + "</p>" );
 			 		dataa.add(myplacesa.get(i));
+			 	}
+
+                LinkedList<String> myplacesc = greeter.getCPlaces(Price, Addres, Caracteristics, Categorie);
+			 	
+			 	for (int i = 0; i < myplacesc.size(); i++) {
+			 		 //out.println( "<p>" + myactors.get(i) + "</p>" );
+			 		datac.add(myplacesc.get(i));
 			 	}
 	        	
 	        } catch (Exception e) {
@@ -74,7 +82,10 @@ public class mergePlace extends HttpServlet {
 	 	
 	 	myResponse.put("conteo", data.size()); //Guardo la cantidad de actores
 	 	myResponse.put("lugares", data);
-        myResponse.put("addres", dataa)
+        myResponse.put("conteoa", dataa.size());
+        myResponse.put("a", dataa);
+        myResponse.put("conteoc", datac.size());
+        myResponse.put("c", datac);
 	 	out.println(myResponse);
 	 	out.flush();  
 	 	
