@@ -67,14 +67,11 @@ header{
 
 section.favoritos > *{
     text-align: left;
-}
-
-.favoritos{
     display: flex;
     justify-content: space-evenly;
 }
 
-.favoritos .card{
+.card{
     background: #DAE1ED;
     display: flex;
     width: 40%;
