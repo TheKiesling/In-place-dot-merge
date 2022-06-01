@@ -31,8 +31,20 @@ public class EmbeddedNeo4j implements AutoCloseable{
     {
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
         departamentos.add("Ciudad de Guatemala");
-        departamentos.add("Sacatepequez");
         departamentos.add("Antigua Guatemala");
+        departamentos.add("Petén");
+        departamentos.add("Mixco");
+        departamentos.add("Cobán");
+        departamentos.add("Esquipulas");
+        departamentos.add("Amatitlán");
+        departamentos.add("San Miguel Petapa");
+        departamentos.add("Fraijanes");
+        departamentos.add("Berberena");
+        departamentos.add("Escuintla");
+        departamentos.add("Mazatenango");
+        departamentos.add("Panajachel");
+        departamentos.add("Cuilapa");
+        departamentos.add("San Marcos");
     }
 
     @Override
