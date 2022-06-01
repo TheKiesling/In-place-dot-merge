@@ -69,12 +69,12 @@ section.favoritos > *{
     text-align: left;
 }
 
-.card{
+.favoritos{
     display: flex;
     justify-content: space-evenly;
 }
 
-.cards1 .card{
+.favoritos .card{
     background: #DAE1ED;
     display: flex;
     width: 40%;
@@ -210,7 +210,7 @@ section.recomendacion > *{
     justify-content: space-evenly;
 }
 
-.card{
+.mostrar .card{
     background: #EDF5F7;
     display: flex;
     width: 40%;
