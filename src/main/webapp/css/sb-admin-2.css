@@ -205,9 +205,12 @@ section.recomendacion > *{
     background-color: #3D23C0;
 }
 
-.card{
+.mostrar{
     display: flex;
     justify-content: space-evenly;
+}
+
+.card{
     background: #EDF5F7;
     display: flex;
     width: 40%;
