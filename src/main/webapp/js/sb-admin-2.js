@@ -121,6 +121,7 @@
 						if (cont == 4){
 							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
 							cont = 0;
+							htmlPlacesList +='<br><br>';
 						}
 						else cont++;
 						
@@ -150,6 +151,7 @@
 						if (cont == 4){
 							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
 							cont = 0;
+							htmlPlacesList +='<br><br>';
 						}
 						else cont++;
 						
@@ -181,6 +183,7 @@
 						if (cont == 4){
 							htmlPlacesList +='<b>Tipo:</b>' + item + '<br></p><br><br>';
 							cont = 0;
+							htmlPlacesList +='<br><br>';
 						}
 						else cont++;
 						
